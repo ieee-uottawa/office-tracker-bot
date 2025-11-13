@@ -382,7 +382,8 @@ async def help_command(interaction: discord.Interaction):
         value="• `/setup` - Create the office dashboard (admin only)\n"
         "• `/add @User` - Add a user manually\n"
         "• `/remove @User` - Remove a user manually\n"
-        "• `/howmany` - Show how many members are currently in the office\n",
+        "• `/howmany` - Show how many members are currently in the office\n"
+        "• `/members` - Show all registered members\n",
         inline=False,
     )
 
