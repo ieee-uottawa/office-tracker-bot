@@ -321,6 +321,26 @@ async def show_guild_id(interaction: discord.Interaction):
     )
 
 
+@bot.slash_command(name="members", description="Show all registered members")
+async def show_members(interaction: discord.Interaction):
+    """
+    Show all registered members.
+    """
+    if not members:
+        await interaction.response.send_message(
+            "No members are registered.", ephemeral=True
+        )
+        return
+
+    member_list = "\n".join(
+        [f"{info['name']} — UID: {info.get('uid') or '(not registered)'}" for info in members.values()]
+    )
+
+    await interaction.response.send_message(
+        f"Registered members:\n{member_list}", ephemeral=True
+    )
+
+
 @bot.slash_command(
     name="howmany", description="Show how many members are currently in the office"
 )
